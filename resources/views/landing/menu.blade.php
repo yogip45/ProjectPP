@@ -349,10 +349,10 @@
                                 <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
                                     <!-- Product Image -->
                                     <div class="product-img">
-                                        <img src="img/product-img/sate.jpg" alt="">
-                                        <div class="product-quicview">
+                                        <img src={{ asset('/gambarmenu/'.$menu->gambar) }} alt="">
+                                        {{-- <div class="product-quicview">
                                             <a href="#" data-toggle="modal" data-target="#quickview"><i class="ti-plus"></i></a>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <!-- Product Description -->
                                     <div class="product-description">

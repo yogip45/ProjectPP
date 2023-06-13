@@ -19,6 +19,10 @@
             <input type="text" class="form-control" id="harga" placeholder="harga" name="harga">
           </div>
           <div class="form-group">
+            <label for="gambar">Gambar Menu</label>
+            <input type="file" class="form-control" id="harga" name="gambar">
+          </div>
+          {{-- <div class="form-group">
             <label>File upload</label>
             <input type="file" name="img[]" class="file-upload-default">
             <div class="input-group col-xs-12">
@@ -27,7 +31,7 @@
                 <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
               </span>
             </div>
-          </div>               
+          </div>                --}}
           <button type="submit" class="btn btn-primary mr-2">Submit</button>
           <button class="btn btn-light">Cancel</button>
         </form>

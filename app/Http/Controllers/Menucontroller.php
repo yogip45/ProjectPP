@@ -36,13 +36,14 @@ class Menucontroller extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $data = Menu::create($request->all());
+        // $data = Menu::create($request->all());
+        $data = Menu::create($request->only('nama_menu','harga','gambar'));
         if($request->hasFile('gambar')){
             $request->file('gambar')->move('gambarmenu/', $request->file('gambar')->getClientOriginalName());
-            $data->gambar = $request->file('gambar')->getClientOriginalName();
+            $data->gambar = $request->file('gambar')->getClientOriginalName();      
             $data->save();
-        }
+            // dd($data);
+        }        
         return redirect()->route('menus')->with('success','Data Berhasil Ditambah');
     }
     
@@ -55,6 +56,11 @@ class Menucontroller extends Controller
     public function editdata(Request $request, $id){
         $data = Menu::find($id);
         $data->update($request->all());
+        if($request->hasFile('gambar')){
+            $request->file('gambar')->move('gambarmenu/', $request->file('gambar')->getClientOriginalName());
+            $data->gambar = $request->file('gambar')->getClientOriginalName();      
+            $data->save();        
+        }
         return redirect()->route('menus')->with('success','Data Berhasil Diubah');
     }
     
