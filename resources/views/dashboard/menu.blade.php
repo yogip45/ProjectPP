@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Connect Plus</title>
+  <title>BOSS ANGKRINGAN</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -26,8 +26,9 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+        <!-- <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a> -->
+        <p>BOSS ANGKRINGAN</p>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -298,11 +299,11 @@
                         <td>Belum Ada</td>
                         <td class="text-center">
                           <div class="d-flex justify-content-center">
-                            <a href="/tampilmenu/{{ $menu->id }}" class="btn btn-success" name="edit">
+                            <a href="/tampilmenu/{{ $menu->id }}" class="btn btn-primary" name="edit">
                               Edit
                             </a>
                             {{-- @include('/dashboard/editmenu') --}}
-                            <a href="/delete/{{ $menu->id }}" class="btn btn-danger btn-sm ml-2" name="hapus">Hapus</a>
+                            <a href="/delete/{{ $menu->id }}" class="btn btn-danger" name="hapus">Hapus</a>
                           </div>
                         </td>
                       </tr>

@@ -6,7 +6,7 @@
         <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
         <span class="menu-title">Dashboard</span>
       </a>
-    </li>
+      <!-- </li>
     {{-- <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
         <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
@@ -38,11 +38,29 @@
         <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>
         <span class="menu-title">Charts</span>
       </a>
-    </li> --}}
+    </li> --}} -->
+    <li class="nav-item">
+      <a class="nav-link" href="#auth">
+        <span class="icon-bg"><i class="mdi mdi-account-multiple menu-icon"></i></span>
+        <span class="menu-title">Data User</span>
+      </a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="/menus">
         <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
         <span class="menu-title">Daftar Menu</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#auth">
+        <span class="icon-bg"><i class="mdi mdi-clipboard-text menu-icon"></i></span>
+        <span class="menu-title">Data Pesanan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#auth">
+        <span class="icon-bg"><i class="mdi mdi-folder-multiple-outline menu-icon"></i></span>
+        <span class="menu-title">Laporan</span>
       </a>
     </li>
     <li class="nav-item">
@@ -62,15 +80,15 @@
       </div>
     </li>
     <li class="nav-item documentation-link">
-      <a class="nav-link" href="http://www.bootstrapdash.com/demo/connect-plus-free/jquery/documentation/documentation.html" target="_blank">
+      <!-- <a class="nav-link" href="http://www.bootstrapdash.com/demo/connect-plus-free/jquery/documentation/documentation.html" target="_blank">
         <span class="icon-bg">
           <i class="mdi mdi-file-document-box menu-icon"></i>
         </span>
         <span class="menu-title">Documentation</span>
-      </a>
+      </a> -->
     </li>
     <li class="nav-item sidebar-user-actions">
-      <div class="user-details">
+      <!-- <div class="user-details">
         <div class="d-flex justify-content-between align-items-center">
           <div>
             <div class="d-flex align-items-center">
@@ -84,7 +102,7 @@
           </div>
           <div class="badge badge-danger">3</div>
         </div>
-      </div>
+      </div> -->
     </li>
     <li class="nav-item sidebar-user-actions">
       <div class="sidebar-user-menu">
