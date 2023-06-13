@@ -289,10 +289,29 @@
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
                       </div>
+<<<<<<< Updated upstream
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Edit</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>
+=======
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Harga Rp. </label>
+                        <input type="text" class="form-control" id="harga" placeholder="harga" name="harga" value="{{ $data->harga }}">
+                      </div>
+                      <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="form-group">
+                          <label for="gambar">Gambar Menu</label>
+                          <input type="file" class="form-control" id="harga" name="gambar" value="{{ $data->gambar }}">
+                        </div>
+                      </div>               
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+>>>>>>> Stashed changes
                 </div>
               </div>
             </div>

@@ -266,7 +266,7 @@
                   </button>
 
                   <!-- Modal -->
-                  @include('/dashboard/tambahmenu');
+                  @include('/dashboard/tambahmenu')
                   {{-- <p class="card-description"> Add class <code>.table-bordered</code>
                     </p> --}}
                   <br>
@@ -296,14 +296,18 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $menu->nama_menu }}</td>
                         <td>{{ $menu->harga }}</td>
-                        <td>Belum Ada</td>
+                        <td><img src="{{ asset('/gambarmenu/'.$menu->gambar) }}" alt=""></td>
                         <td class="text-center">
                           <div class="d-flex justify-content-center">
                             <a href="/tampilmenu/{{ $menu->id }}" class="btn btn-primary" name="edit">
                               Edit
                             </a>
                             {{-- @include('/dashboard/editmenu') --}}
+<<<<<<< Updated upstream
                             <a href="/delete/{{ $menu->id }}" class="btn btn-danger" name="hapus">Hapus</a>
+=======
+                            <a href="/delete/{{ $menu->id }}" class="btn btn-danger ml-2" name="hapus">Hapus</a>
+>>>>>>> Stashed changes
                           </div>
                         </td>
                       </tr>
