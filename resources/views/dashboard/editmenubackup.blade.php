@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>BOSS ANGKRINGAN</title>
+  <title>Connect Plus</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -26,9 +26,8 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <!-- <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a> -->
-        <p>BOSS ANGKRINGAN</p>
+        <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -136,7 +135,7 @@
                   <span>Lock Account</span>
                   <i class="mdi mdi-lock ml-1"></i>
                 </a>
-                <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="/logout">
+                <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
                   <span>Log Out</span>
                   <i class="mdi mdi-logout ml-1"></i>
                 </a>
@@ -271,46 +270,45 @@
                     </p> --}}
                   <br>
                   <p></p>
-                  <table class="table table-bordered">
-                    @php
-                    $no = 1;
-
-                    @endphp
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-primary" role="alert">
-                      {{ $message }}
+                  <form class="forms-sample" method="POST" action="/editmenu/{{ $data->id }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Nama Menu</label>
+                      <input type="text" class="form-control" id="nama_menu" placeholder="nama menu" name="nama_menu" value="{{ $data->nama_menu }}">
                     </div>
-                    @endif
-                    <thead>
-                      <tr>
-                        <th> # </th>
-                        <th> Nama Menu </th>
-                        <th> Harga </th>
-                        <th> Gambar </th>
-                        <th> Action </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($menus as $menu)
-                      <tr>
-                        <td>{{ $no++ }}</td>
-                        <td>{{ $menu->nama_menu }}</td>
-                        <td>{{ $menu->harga }}</td>
-                        <td><img src="{{ asset('/gambarmenu/'.$menu->gambar) }}" alt=""></td>
-                        <td class="text-center">
-                          <div class="d-flex justify-content-center">
-                            <a href="/tampilmenu/{{ $menu->id }}" class="btn btn-primary" name="edit">
-                              Edit
-                            </a>
-                            {{-- @include('/dashboard/editmenu') --}}
-                            {{-- <a href="/delete/{{ $menu->id }}" class="btn btn-danger" name="hapus">Hapus</a> --}}
-                            <a href="/delete/{{ $menu->id }}" class="btn btn-danger ml-2" name="hapus">Hapus</a>
-                          </div>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Harga Rp. </label>
+                      <input type="text" class="form-control" id="harga" placeholder="harga" name="harga" value="{{ $data->harga }}">
+                    </div>
+                    <div class="form-group">
+                      <label>File upload</label>
+                      <input type="file" name="img[]" class="file-upload-default">
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" name="gambar">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Edit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Harga Rp. </label>
+                        <input type="text" class="form-control" id="harga" placeholder="harga" name="harga" value="{{ $data->harga }}">
+                      </div>
+                      <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="form-group">
+                          <label for="gambar">Gambar Menu</label>
+                          <input type="file" class="form-control" id="harga" name="gambar" value="{{ $data->gambar }}">
+                        </div>
+                      </div>               
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

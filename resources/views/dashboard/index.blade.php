@@ -1,6 +1,6 @@
 @if (!auth()->check())
 @php
-return redirect('/sesi');
+return redirect('/sesi')
 @endphp
 @else
 <!-- Konten jika autentikasi berhasil -->
@@ -249,7 +249,7 @@ return redirect('/sesi');
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      @include('/dashboard/sidebar');
+      @include('/dashboard/sidebar')
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
