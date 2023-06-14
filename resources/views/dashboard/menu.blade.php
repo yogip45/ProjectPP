@@ -264,18 +264,16 @@
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Tambah Data +
                   </button>
-
+                  @php
+                      $no = 1;
+                  @endphp
                   <!-- Modal -->
                   @include('/dashboard/tambahmenu')
                   {{-- <p class="card-description"> Add class <code>.table-bordered</code>
                     </p> --}}
                   <br>
                   <p></p>
-                  <table class="table table-bordered">
-                    @php
-                    $no = 1;
-
-                    @endphp
+                  <table class="table table-bordered">                    
                     @if ($message = Session::get('success'))
                     <div class="alert alert-primary" role="alert">
                       {{ $message }}
