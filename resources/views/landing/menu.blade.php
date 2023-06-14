@@ -257,93 +257,56 @@
                                         </ul>
                                     </div> --}}
                                 </div>
-                            </div>
-
-                            {{-- <div class="widget price mb-50">
-                                <h6 class="widget-title mb-30">Filter by Price</h6>
-                                <div class="widget-desc">
-                                    <div class="slider-range">
-                                        <div data-min="0" data-max="3000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="0" data-value-max="1350" data-label-result="Price:">
-                                            <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                        </div>
-                                        <div class="range-price">Price: 0 - 1350</div>
-                                    </div>
-                                </div>
-                            </div> --}}
-
-                            {{-- <div class="widget color mb-70">
-                                <h6 class="widget-title mb-30">Filter by Color</h6>
-                                <div class="widget-desc">
-                                    <ul class="d-flex justify-content-between">
-                                        <li class="gray"><a href="#"><span>(3)</span></a></li>
-                                        <li class="red"><a href="#"><span>(25)</span></a></li>
-                                        <li class="yellow"><a href="#"><span>(112)</span></a></li>
-                                        <li class="green"><a href="#"><span>(72)</span></a></li>
-                                        <li class="teal"><a href="#"><span>(9)</span></a></li>
-                                        <li class="cyan"><a href="#"><span>(29)</span></a></li>
-                                    </ul>
-                                </div>
-                            </div> --}}
-
-                            {{-- <div class="widget size mb-50">
-                                <h6 class="widget-title mb-30">Filter by Size</h6>
-                                <div class="widget-desc">
-                                    <ul class="d-flex justify-content-between">
-                                        <li><a href="#">XS</a></li>
-                                        <li><a href="#">S</a></li>
-                                        <li><a href="#">M</a></li>
-                                        <li><a href="#">L</a></li>
-                                        <li><a href="#">XL</a></li>
-                                        <li><a href="#">XXL</a></li>
-                                    </ul>
-                                </div>
-                            </div> --}}
-
-                            {{-- <div class="widget recommended">
-                                <h6 class="widget-title mb-30">Recommended</h6>
-
-                                <div class="widget-desc">
-                                    <!-- Single Recommended Product -->
-                                    <div class="single-recommended-product d-flex mb-30">
-                                        <div class="single-recommended-thumb mr-3">
-                                            <img src="img/product-img/product-10.jpg" alt="">
-                                        </div>
-                                        <div class="single-recommended-desc">
-                                            <h6>Men’s T-shirt</h6>
-                                            <p>$ 39.99</p>
-                                        </div>
-                                    </div>
-                                    <!-- Single Recommended Product -->
-                                    <div class="single-recommended-product d-flex mb-30">
-                                        <div class="single-recommended-thumb mr-3">
-                                            <img src="img/product-img/product-11.jpg" alt="">
-                                        </div>
-                                        <div class="single-recommended-desc">
-                                            <h6>Blue mini top</h6>
-                                            <p>$ 19.99</p>
-                                        </div>
-                                    </div>
-                                    <!-- Single Recommended Product -->
-                                    <div class="single-recommended-product d-flex">
-                                        <div class="single-recommended-thumb mr-3">
-                                            <img src="img/product-img/product-12.jpg" alt="">
-                                        </div>
-                                        <div class="single-recommended-desc">
-                                            <h6>Women’s T-shirt</h6>
-                                            <p>$ 39.99</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
+                            </div>                            
                         </div>
                     </div>
 
                     <div class="col-12 col-md-8 col-lg-9">
                         <div class="shop_grid_product_area">
                             <div class="row">
-
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Tambah Ke Keranjang</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <form class="forms-sample" method="POST" action="/insertmenu" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-group">
+                                              <label for="exampleInputUsername1">Nama Menu</label>
+                                              <input type="text" class="form-control" id="nama_menu" placeholder="nama menu" name="nama_menu" value="">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="exampleInputEmail1">Jumlah </label>
+                                              <input type="text" class="form-control" id="harga" placeholder="harga" name="jumlah" value="0">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="nomor_meja">Nomor Meja </label>
+                                              <select class="form-control mb-2" name="nomor_meja" id="nomor_meja" required>
+                                                <option value="">Pilih Nomor Meja</option>
+                                                <option value="">A1</option>
+                                                <option value="">A2</option>
+                                                <option value="">A3</option>
+                                                <option value="">A4</option>
+                                                <option value="">A5</option>
+                                                {{-- @foreach ($mejas as $nomorMeja)
+                                                  <option value="{{ $nomorMeja }}">{{ $nomorMeja }}</option>
+                                              @endforeach --}}
+                                            </select>
+                                          </div>
+                                            <button type="submit" class="btn btn-primary mr-2">Tambah</button>
+                                            {{-- <button class="btn btn-light">Cancel</button> --}}
+                                          </form>
+                                        </div>
+                                        <div class="modal-footer">        
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                                 <!-- Single gallery Item -->
                                 @foreach ($menus as $menu)                                    
                                 <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
@@ -362,7 +325,7 @@
                                         <!-- Add to Cart -->
                                         <div class="quantity-add-to-cart">
                                             {{-- <input type="number" min="0" value="0" class="quantity-input" id="jumlah_"> --}}
-                                            <a href="#" type="submit" class="add-to-cart-btn" onclick="addToCart({{ $menu->id }})">Tambah</a>
+                                            <a href="#" type="submit" class="add-to-cart-btn" data-toggle="modal" data-target="#exampleModal">Tambah</a>
                                             {{-- <button type="submit" class="btn karl-checkout-btn">Tambah</button> --}}
                                         </div>
                                     </div>

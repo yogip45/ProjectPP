@@ -14,11 +14,14 @@ class Menucontroller extends Controller
     public function index()
     {
         $menus = Menu::all();
-        return view('/landing/menu', ['menus' => $menus]);
-        //return nomor meja
-        $nomorMejaList = pesanan::all();        
-        return view('/landing/menu',['nomorMejaList'=>$nomorMejaList]);
+        return view('/landing/menu', ['menus' => $menus]);            
     }
+    // public function tampildimodal($id)
+    // {
+    //     // $menus = Menu::all();
+    //     $menus = Menu::all();
+    //     return view('/landing/menu')->with(['menus' => $menus]);            
+    // }
     public function admin(){
         $menus = Menu::all();
         return view('/dashboard/menu', ['menus'=>$menus]);

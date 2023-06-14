@@ -52,6 +52,9 @@ Route::post('/editmenu/{id}',[Menucontroller::class, 'editdata'])->name('tampil'
 //hapus menu
 Route::get('/delete/{id}',[Menucontroller::class, 'delete'])->name('delete');
 
+//tampil di modal keranjang
+Route::get('/menu/{id}',[Menucontroller::class, 'tampildimodal'])->name('tampilmodal');
+
 
 
 
