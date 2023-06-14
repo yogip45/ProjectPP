@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\pesananController;
 use App\Http\Controllers\sessionController;
 use Illuminate\Support\Facades\Route;
+
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -27,8 +28,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 // });
 //masuk nomor meja
 Route::get('/', [LandingController::class, 'meja']);
-Route::get('/dashboard', [dashboardController::class, 'index']);
-
+Route::get('/dashboard', [dashboardController::class, 'index'])->middleware('isLogin');
+//login route
 Route::get('/sesi', [sessionController::class, 'index']);
 Route::post('/sesi/login', [sessionController::class, 'login']);
 Route::get('/sesi/logout', [sessionController::class, 'logout']);
