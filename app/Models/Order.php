@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     // use HasFactory;
-    protected $fillable = [];
+    protected $fillable = [        
+        'nomor_meja',
+        'menu_id',
+        'jumlah',
+    ];
     public function menu()
     {
         return $this->belongsTo(Menu::class);

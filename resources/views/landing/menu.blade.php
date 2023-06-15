@@ -264,7 +264,7 @@
                     <div class="col-12 col-md-8 col-lg-9">
                         <div class="shop_grid_product_area">
                             <div class="row">
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                       <div class="modal-content">
                                         <div class="modal-header">
@@ -296,17 +296,18 @@
                                                 {{-- @foreach ($mejas as $nomorMeja)
                                                   <option value="{{ $nomorMeja }}">{{ $nomorMeja }}</option>
                                               @endforeach --}}
-                                            </select>
-                                          </div>
-                                            <button type="submit" class="btn btn-primary mr-2">Tambah</button>
+                                            {{-- </select> --}}
+                                          {{-- </div> --}}
+                                            {{-- <button type="submit" class="btn btn-primary mr-2">Tambah</button> --}}
+                                            {{-- <button type="submit" class="btn karl-checkout-btn col-md-7 mb-2">Tambah</button> --}}
                                             {{-- <button class="btn btn-light">Cancel</button> --}}
-                                          </form>
-                                        </div>
-                                        <div class="modal-footer">        
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
+                                          {{-- </form> --}}
+                                        {{-- </div> --}}
+                                        {{-- <div class="modal-footer">         --}}
+                                        {{-- </div> --}}
+                                      {{-- </div> --}}
+                                    {{-- </div> --}}
+                                  {{-- </div> -- --}}
                                 <!-- Single gallery Item -->
                                 @foreach ($menus as $menu)                                    
                                 <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
@@ -325,7 +326,8 @@
                                         <!-- Add to Cart -->
                                         <div class="quantity-add-to-cart">
                                             {{-- <input type="number" min="0" value="0" class="quantity-input" id="jumlah_"> --}}
-                                            <a href="#" type="submit" class="add-to-cart-btn" data-toggle="modal" data-target="#exampleModal">Tambah</a>
+                                            <a href="/keranjang/{{ $menu->id }}" type="button" class="btn karl-checkout-btn col-md-15 mb-2"">Tambah</a>
+                                            {{-- <a href="#" type="submit" class="add-to-cart-btn" data-toggle="modal" data-target="#exampleModal">Tambah</a> --}}
                                             {{-- <button type="submit" class="btn karl-checkout-btn">Tambah</button> --}}
                                         </div>
                                     </div>

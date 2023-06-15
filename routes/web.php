@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\loginController;
@@ -63,6 +64,11 @@ Route::get('/delete/{id}',[Menucontroller::class, 'delete'])->name('delete');
 //tampil di modal keranjang
 Route::get('/menu/{id}',[Menucontroller::class, 'tampildimodal'])->name('tampilmodal');
 
+//tambah ke keranjang
+//tampil detail menu
+Route::get('/keranjang/{id}',[CheckoutController::class, 'tampil'])->name('checkouttampil');
+//tambah item
+Route::post('/keranjang/tambahitem',[CheckoutController::class, 'tambahitem'])->name('tambahitem');
 
 
 

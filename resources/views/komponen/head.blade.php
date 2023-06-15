@@ -12,7 +12,13 @@
 
     <!-- Title  -->
     <title>Bos Angkringan</title>
-
+    <style>
+      .product_details_slider li {
+          width: 300px;
+          height: 300px;
+      }
+  </style>
+  
     <!-- Favicon  -->
     <link rel="icon" href={{ asset("img/core-img/favicon.ico") }}>
     {{-- Custom css --}}
