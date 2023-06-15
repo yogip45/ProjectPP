@@ -14,4 +14,11 @@ class dashboardController extends Controller
             return view('/dashboard/index');
         }
     }
+    public function kasir(){
+        if (!Auth()->check()) {
+            return redirect('/sesi');
+        } else {            
+            return view('/dashboard/kasir');
+        }
+    }
 }

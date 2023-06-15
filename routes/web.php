@@ -28,9 +28,16 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 // });
 //masuk nomor meja
 Route::get('/', [LandingController::class, 'meja']);
-Route::get('/dashboard', [dashboardController::class, 'index'])->middleware('isLogin');
+Route::group(['middleware' => ['auth','cekLevel:kasir,owner']], function(){
+  Route::get('/dashboard', [dashboardController::class, 'index'])->middleware('checkLogin')->name('dashboard');
+
+});
+//dashboard kasir
+Route::get('/kasir', [dashboardController::class, 'kasir'])->middleware('checkLogin')->name('dashboardkasir');
+// Route::get('/dashboard', 'dashboardController@index')->middleware('checkLogin');
+
 //login route
-Route::get('/sesi', [sessionController::class, 'index']);
+Route::get('/sesi', [sessionController::class, 'index'])->name('login')->middleware('checkTamu');
 Route::post('/sesi/login', [sessionController::class, 'login']);
 Route::get('/sesi/logout', [sessionController::class, 'logout']);
 

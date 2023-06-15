@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class ApakahLogin
+class CheckLogin
 {
     /**
      * Handle an incoming request.
@@ -16,9 +15,10 @@ class ApakahLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()){
-            return $next($request);            
+        if (!auth()->check()) {
+            return redirect()->route('sesi');
         }
-        return redirect('/sesi')->withErrors('Silahkan Login Terlebih Dahulu');
+        
+        return $next($request);
     }
 }

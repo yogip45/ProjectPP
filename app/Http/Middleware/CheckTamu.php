@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class ApakahLogin
+class CheckTamu
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,10 @@ class ApakahLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()){
-            return $next($request);            
+        if(Auth::check()){
+            // return redirect('dashboard')->with('success','Anda sudah login');
+            return redirect()->route('dashboard');
         }
-        return redirect('/sesi')->withErrors('Silahkan Login Terlebih Dahulu');
+        return $next($request);
     }
 }
