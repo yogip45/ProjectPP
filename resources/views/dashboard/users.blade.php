@@ -304,7 +304,7 @@
                             </a>
                             {{-- @include('/dashboard/editmenu') --}}
                             {{-- <a href="/delete/{{ $menu->id }}" class="btn btn-danger" name="hapus">Hapus</a> --}}
-                            <a href="/delete/{{ $user->id }}" class="btn btn-danger ml-2" name="hapus">Hapus</a>
+                            <a href="/deleteuser/{{ $user->id }}" class="btn btn-danger ml-2" name="hapus">Hapus</a>
                           </div>
                         </td>
                       </tr>

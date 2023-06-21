@@ -80,6 +80,8 @@ Route::get('/tampiluser/{id}',[UsersController::class, 'tampilbyid'])->name('tam
 Route::post('/insertuser',[UsersController::class, 'tambah'])->name('tambahuser');
 //edit user
 Route::post('/edituser/{id}',[UsersController::class, 'edituser']);
+//hapus user
+Route::get('/deleteuser/{id}',[UsersController::class, 'deleteuser'])->name('deleteuser');
 //tampil meja
 // Route::get('/menu',[MejaController::class, 'index'])->name('tampil.menu');
 

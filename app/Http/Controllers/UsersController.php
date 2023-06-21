@@ -25,6 +25,11 @@ public function edituser(Request $request, $id){
     $data->update($request->all());    
     return redirect()->route('tampiluser')->with('success','Data Berhasil Diubah');
 }
+public function deleteuser($id){
+    $data = User::find($id);
+    $data->delete();
+    return redirect()->route('tampiluser')->with('success','Data Berhasil Dihapus');
+}
 
 
 }
