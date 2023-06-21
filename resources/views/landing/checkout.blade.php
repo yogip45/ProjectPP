@@ -130,7 +130,9 @@
                                         <form class="cart" method="post">
                                             <div class="quantity">
                                                 <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+
                                                 <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">
+
                                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                             </div>
                                             <button type="submit" name="addtocart" value="5" class="cart-submit">Add to cart</button>
@@ -191,7 +193,67 @@
                                                 </button>
                                                 {{-- </a> --}}
                                             </div>
-                                        </div>                                        
+                                        </div>
+
+                                        <!-- <h6 class="mb-0">Catagories</h6> -->
+                                        {{-- <div class="menu-list">
+                                        <ul id="menu-content2" class="menu-content collapse out">
+                                            <!-- Single Item -->
+                                            <!-- <li data-toggle="collapse" data-target="#women2">
+                                                <a href="#">Woman wear</a> -->
+                                                <!-- <ul class="sub-menu collapse show" id="women2">
+                                                    <li><a href="#">Midi Dresses</a></li>
+                                                    <li><a href="#">Maxi Dresses</a></li>
+                                                    <li><a href="#">Prom Dresses</a></li>
+                                                    <li><a href="#">Little Black Dresses</a></li>
+                                                    <li><a href="#">Mini Dresses</a></li>
+                                                </ul> -->
+                                            </li>
+                                            <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="#man2" class="collapsed">
+                                                <a href="#">Man Wear</a>
+                                                <ul class="sub-menu collapse" id="man2">
+                                                    <li><a href="#">Man Dresses</a></li>
+                                                    <li><a href="#">Man Black Dresses</a></li>
+                                                    <li><a href="#">Man Mini Dresses</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="#kids2" class="collapsed">
+                                                <a href="#">Children</a>
+                                                <ul class="sub-menu collapse" id="kids2">
+                                                    <li><a href="#">Children Dresses</a></li>
+                                                    <li><a href="#">Mini Dresses</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="#bags2" class="collapsed">
+                                                <a href="#">Bags &amp; Purses</a>
+                                                <ul class="sub-menu collapse" id="bags2">
+                                                    <li><a href="#">Bags</a></li>
+                                                    <li><a href="#">Purses</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="#eyewear2" class="collapsed">
+                                                <a href="#">Eyewear</a>
+                                                <ul class="sub-menu collapse" id="eyewear2">
+                                                    <li><a href="#">Eyewear Style 1</a></li>
+                                                    <li><a href="#">Eyewear Style 2</a></li>
+                                                    <li><a href="#">Eyewear Style 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="#footwear2" class="collapsed">
+                                                <a href="#">Footwear</a>
+                                                <ul class="sub-menu collapse" id="footwear2">
+                                                    <li><a href="#">Footwear 1</a></li>
+                                                    <li><a href="#">Footwear 2</a></li>
+                                                    <li><a href="#">Footwear 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
