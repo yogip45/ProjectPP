@@ -9,6 +9,7 @@ use App\Http\Controllers\Menucontroller;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\pesananController;
 use App\Http\Controllers\sessionController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -70,8 +71,15 @@ Route::get('/keranjang/{id}',[CheckoutController::class, 'tampil'])->name('check
 //tambah item
 Route::post('/keranjang/tambahitem',[CheckoutController::class, 'tambahitem'])->name('tambahitem');
 
-
-
+//CRUD User
+//tampil
+Route::get('/users',[UsersController::class, 'tampil'])->name('tampiluser');
+//byid
+Route::get('/tampiluser/{id}',[UsersController::class, 'tampilbyid'])->name('tampiluserbyid');
+//tambah baru user
+Route::post('/insertuser',[UsersController::class, 'tambah'])->name('tambahuser');
+//edit user
+Route::post('/edituser/{id}',[UsersController::class, 'edituser']);
 //tampil meja
 // Route::get('/menu',[MejaController::class, 'index'])->name('tampil.menu');
 

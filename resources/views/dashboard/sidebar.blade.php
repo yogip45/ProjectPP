@@ -8,7 +8,7 @@
       </a>   
       @if (auth()->user()->level == "owner")        
       <li class="nav-item">
-        <a class="nav-link" href="#auth">
+        <a class="nav-link" href="/users">
           <span class="icon-bg"><i class="mdi mdi-account-multiple menu-icon"></i></span>
           <span class="menu-title">Data User</span>
         </a>
