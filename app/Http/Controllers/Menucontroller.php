@@ -14,8 +14,9 @@ class Menucontroller extends Controller
     public function index()
     {
         $menus = Menu::all();
-        return view('/landing/menu', ['menus' => $menus]);            
+        return view('/landing/menu', ['menus' => $menus]);             
     }
+
     // public function tampildimodal($id)
     // {
     //     // $menus = Menu::all();
@@ -25,7 +26,8 @@ class Menucontroller extends Controller
     public function admin(){
         $menus = Menu::all();
         return view('/dashboard/menu', ['menus'=>$menus]);
-    }
+        // $jumlahmenu = Menu::count();
+    }   
     /**
      * Show the form for creating a new resource.
      */
