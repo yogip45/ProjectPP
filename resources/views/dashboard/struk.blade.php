@@ -1,169 +1,358 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>A simple, clean, and responsive HTML invoice template</title>
+<html lang="en">
+<head>
+  <style>
+    /* -------------------------------------
+    GLOBAL
+    A very basic CSS reset
+------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    font-size: 14px;
+}
 
-    <style>
-      .invoice-box {
-        max-width: 800px;
-        margin: auto;
-        padding: 30px;
-        border: 1px solid #eee;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-        font-size: 16px;
-        line-height: 24px;
-        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-        color: #555;
-      }
+img {
+    max-width: 100%;
+}
 
-      .invoice-box table {
-        width: 100%;
-        line-height: inherit;
-        text-align: left;
-      }
+body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    width: 100% !important;
+    height: 100%;
+    line-height: 1.6;
+}
 
-      .invoice-box table td {
-        padding: 5px;
-        vertical-align: top;
-      }
+/* Let's make sure all tables have defaults */
+table td {
+    vertical-align: top;
+}
 
-      .invoice-box table tr td:nth-child(2) {
-        text-align: right;
-      }
+/* -------------------------------------
+    BODY & CONTAINER
+------------------------------------- */
+body {
+    background-color: #f6f6f6;
+}
 
-      .invoice-box table tr.top table td {
-        padding-bottom: 20px;
-      }
+.body-wrap {
+    background-color: #f6f6f6;
+    width: 100%;
+}
 
-      .invoice-box table tr.top table td.title {
-        font-size: 45px;
-        line-height: 45px;
-        color: #333;
-      }
+.container {
+    display: block !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    /* makes it centered */
+    clear: both !important;
+}
 
-      .invoice-box table tr.information table td {
-        padding-bottom: 40px;
-      }
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    padding: 20px;
+}
 
-      .invoice-box table tr.heading td {
-        background: #eee;
-        border-bottom: 1px solid #ddd;
-        font-weight: bold;
-      }
+/* -------------------------------------
+    HEADER, FOOTER, MAIN
+------------------------------------- */
+.main {
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    border-radius: 3px;
+}
 
-      .invoice-box table tr.details td {
-        padding-bottom: 20px;
-      }
+.content-wrap {
+    padding: 20px;
+}
 
-      .invoice-box table tr.item td {
-        border-bottom: 1px solid #eee;
-      }
+.content-block {
+    padding: 0 0 20px;
+}
 
-      .invoice-box table tr.item.last td {
-        border-bottom: none;
-      }
+.header {
+    width: 100%;
+    margin-bottom: 20px;
+}
 
-      .invoice-box table tr.total td:nth-child(2) {
-        border-top: 2px solid #eee;
-        font-weight: bold;
-      }
+.footer {
+    width: 100%;
+    clear: both;
+    color: #999;
+    padding: 20px;
+}
+.footer a {
+    color: #999;
+}
+.footer p, .footer a, .footer unsubscribe, .footer td {
+    font-size: 12px;
+}
 
-      @media only screen and (max-width: 600px) {
-        .invoice-box table tr.top table td {
-          width: 100%;
-          display: block;
-          text-align: center;
-        }
+/* -------------------------------------
+    TYPOGRAPHY
+------------------------------------- */
+h1, h2, h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #000;
+    margin: 40px 0 0;
+    line-height: 1.2;
+    font-weight: 400;
+}
 
-        .invoice-box table tr.information table td {
-          width: 100%;
-          display: block;
-          text-align: center;
-        }
-      }
+h1 {
+    font-size: 32px;
+    font-weight: 500;
+}
 
-      /** RTL **/
-      .invoice-box.rtl {
-        direction: rtl;
-        font-family: Tahoma, "Helvetica Neue", "Helvetica", Helvetica, Arial,
-          sans-serif;
-      }
+h2 {
+    font-size: 24px;
+}
 
-      .invoice-box.rtl table {
-        text-align: right;
-      }
+h3 {
+    font-size: 18px;
+}
 
-      .invoice-box.rtl table tr td:nth-child(2) {
-        text-align: left;
-      }
-    </style>
-  </head>
+h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
 
-  <body>
-    <div class="invoice-box">
-      <table cellpadding="0" cellspacing="0">
-        <tr class="top">
-          <td colspan="2">
-            <table>              
-              <tr>
-                <td class="title">
-                  <!-- <img
-                    src="https://www.sparksuite.com/images/logo.png"
-                    style="width: 100%; max-width: 300px" /> -->
-                </td>
-                @php
-                    use Carbon\Carbon;
-                @endphp
-                <td>Pembelian: {{Carbon::now()->locale('id')->isoFormat('LL');}}<br /></td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+p, ul, ol {
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+p li, ul li, ol li {
+    margin-left: 5px;
+    list-style-position: inside;
+}
 
-        <tr class="information">
-          <td colspan="2">
-            <table>
-              <tr>
-                <td></td>
+/* -------------------------------------
+    LINKS & BUTTONS
+------------------------------------- */
+a {
+    color: #1ab394;
+    text-decoration: underline;
+}
 
-                <td>
-                  Boss Angkringan.<br />
-                  <!-- John Doe<br />
-                  john@example.com -->
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>                 
-        </tr>
+.btn-primary {
+    text-decoration: none;
+    color: #FFF;
+    background-color: #1ab394;
+    border: solid #1ab394;
+    border-width: 5px 10px;
+    line-height: 2;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px;
+    text-transform: capitalize;
+}
 
-        <tr class="heading">
-          <td>Item</td>
-          {{-- <td>Jumlah</td> --}}
-          <td>Harga Satuan</td>
-        </tr>
-@php
-$total = 0;
-@endphp
-@foreach ($data as $item)
-    
-<tr class="item">
-  <td>Rp. {{$item->menu->nama_menu}}</td>
-  {{-- <td>{{$item->jumlah}}</td> --}}
-  <td>Rp. {{$item->menu->harga}}</td>
-</tr>        
-  @php
-  $total += $item->menu->harga;
-  @endphp
-@endforeach
+/* -------------------------------------
+    OTHER STYLES THAT MIGHT BE USEFUL
+------------------------------------- */
+.last {
+    margin-bottom: 0;
+}
 
-        <tr class="total">
-          <td></td>
+.first {
+    margin-top: 0;
+}
 
-          <td>Total: Rp. {{ $total }}</td>
-        </tr>
-      </table>
-    </div>
-  </body>
+.aligncenter {
+    text-align: center;
+}
+
+.alignright {
+    text-align: right;
+}
+
+.alignleft {
+    text-align: left;
+}
+
+.clear {
+    clear: both;
+}
+
+/* -------------------------------------
+    ALERTS
+    Change the class depending on warning email, good email or bad email
+------------------------------------- */
+.alert {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    padding: 20px;
+    text-align: center;
+    border-radius: 3px 3px 0 0;
+}
+.alert a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+}
+.alert.alert-warning {
+    background: #f8ac59;
+}
+.alert.alert-bad {
+    background: #ed5565;
+}
+.alert.alert-good {
+    background: #1ab394;
+}
+
+/* -------------------------------------
+    INVOICE
+    Styles for the billing table
+------------------------------------- */
+.invoice {
+    margin: 40px auto;
+    text-align: left;
+    width: 80%;
+}
+.invoice td {
+    padding: 5px 0;
+}
+.invoice .invoice-items {
+    width: 100%;
+}
+.invoice .invoice-items td {
+    border-top: #eee 1px solid;
+}
+.invoice .invoice-items .total td {
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    font-weight: 700;
+}
+
+/* -------------------------------------
+    RESPONSIVE AND MOBILE FRIENDLY STYLES
+------------------------------------- */
+@media only screen and (max-width: 640px) {
+    h1, h2, h3, h4 {
+        font-weight: 600 !important;
+        margin: 20px 0 5px !important;
+    }
+
+    h1 {
+        font-size: 22px !important;
+    }
+
+    h2 {
+        font-size: 18px !important;
+    }
+
+    h3 {
+        font-size: 16px !important;
+    }
+
+    .container {
+        width: 100% !important;
+    }
+
+    .content, .content-wrap {
+        padding: 10px !important;
+    }
+
+    .invoice {
+        width: 100% !important;
+    }
+}
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Struk Print</title>
+</head>
+<body>
+  <table class="body-wrap">
+    <tbody><tr>
+        <td></td>
+        <td class="container" width="600">
+            <div class="content">
+                <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                        <td class="content-wrap aligncenter">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody><tr>
+                                    <td class="content-block">
+                                        <h2>Struk Pembelian</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        <table class="invoice">
+                                            <tbody><tr>
+                                                {{-- <td>Anna Smith<br>Invoice #12345<br>June 01 2015</td> --}}
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table class="invoice-items">
+                                                      <thead>
+                                                        <td style="font-weight: bold;">Nama Item</td>
+                                                        <td style="font-weight: bold;" class="alignleft">Qt</td>
+                                                        <td style="font-weight: bold;" class="aligncenter">Satuan</td>
+                                                        <td style="font-weight: bold;" class="alignright">Total</td>
+                                                      </thead>
+                                                        <tbody>
+                                                          @php
+                                                          $total = 0;
+                                                          @endphp
+                                                          @foreach ($data as $item)
+                                                          <tr>
+                                                            <td>{{$item->menu->nama_menu}}</td>
+                                                            <td>{{$item->jumlah}}</td>                                                            
+                                                            <td class="alignright">{{$item->menu->harga}}</td>
+                                                            <td class="alignright">{{$item->menu->harga * $item->jumlah}}</td>
+                                                        </tr>
+                                                            @php
+                                                            $total += $item->menu->harga;
+                                                            @endphp                                                            
+                                                          @endforeach                                                    
+                                                        <tr class="total">
+                                                            <td class="alignright" width="80%">Total Bayar</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td class="alignright">Rp.{{ $total }}</td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        <a href="#">Print</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        BOSSS ANGKRINGAN (TUTUP NJIR)
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+                <div class="footer">
+                    <table width="100%">
+                        <tbody><tr>
+                            <td class="aligncenter content-block">Questions? Email <a href="mailto:">support@company.inc</a></td>
+                        </tr>
+                    </tbody></table>
+                </div></div>
+        </td>
+        <td></td>
+    </tr>
+</tbody></table>
+</body>
 </html>
