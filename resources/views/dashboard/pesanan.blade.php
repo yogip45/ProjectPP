@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Users Management</title>
+  <title>BOSS ANGKRINGAN</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -43,7 +43,7 @@
               <input type="text" class="form-control bg-transparent border-0" placeholder="Search products">
             </div>
           </form>
-        </div>        
+        </div>       
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
@@ -57,11 +57,11 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
-            <h3 class="page-title"> Pengaturan User </h3>
+            <h3 class="page-title"> Daftar Pesanan Pelanggan </h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Users</li>
+                <li class="breadcrumb-item active" aria-current="page">Pesanan</li>
               </ol>
             </nav>
           </div>
@@ -73,63 +73,74 @@
                 <div class="card-body">
                   {{-- <h4 class="card-title">Bordered table</h4> --}}
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahuser">
-                    Tambah User +
-                  </button>
+                  {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Tambah Data +
+                  </button> --}}
                   @php
                       $no = 1;
                   @endphp
                   <!-- Modal -->
-                  @include('/dashboard/tambahuser')
-                  {{-- <p class="card-description"> Add class <code>.table-bordered</code>
+                  @include('/dashboard/tambahmenu')
+                    {{-- <p class="card-description"> Add class <code>.table-bordered</code>
                     </p> --}}
                   <br>
                   <p></p>
                   <table class="table table-bordered">                    
                     @if ($message = Session::get('success'))
-                    <div class="alert alert-primary" role="alert">
-                      {{ $message }}
-                    </div>
+                        <div class="alert alert-primary" role="alert">
+                            {{ $message }}
+                        </div>
                     @endif
                     <thead>
-                      <tr>
-                        <th> # </th>
-                        <th> Nama </th>
-                        <th> Email </th>
-                        <th> Role </th>
-                        <th> Action </th>
-                        {{-- <th> Action </th> --}}
-                      </tr>
+                        <tr>
+                            <th> # </th>
+                            <th>Nama Menu</th>
+                            <th>Meja</th>
+                            <th>Jumlah</th>
+                            <th>Total Harga</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      @foreach ($users as $user)
-                      <tr>
-                        <td>{{ $no++ }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->level }}</td>
-                        {{-- <td><img src="{{ asset('/gambarmenu/'.$menu->gambar) }}" alt=""></td> --}}
-                        <td class="text-center">
-                          <div class="d-flex justify-content-center">
-                            <a href="/tampiluser/{{ $user->id }}" class="btn btn-primary" name="edit">
-                              Edit
-                            </a>
-                            {{-- @include('/dashboard/editmenu') --}}
-                            {{-- <a href="/delete/{{ $menu->id }}" class="btn btn-danger" name="hapus">Hapus</a> --}}
-                            <a href="/deleteuser/{{ $user->id }}" class="btn btn-danger ml-2" name="hapus">Hapus</a>
-                          </div>
-                        </td>
-                      </tr>
-                      @endforeach
+                        @foreach ($order as $pesanan)
+                        <tr>
+                            <td>{{ $no++ }}</td>
+                            <td style="word-break: break-all;">{{ $pesanan->menu->nama_menu }}</td>
+                            <td>{{ $pesanan->nomor_meja }}</td>
+                            <td>{{ $pesanan->jumlah }}</td>
+                            <td>{{ $pesanan->jumlah * $pesanan->menu->harga }}</td>
+                            <td>
+                              @if ($pesanan->status == 'selesai')
+                              <span class="text-success">{{ $pesanan->status }}</span>
+                              @else
+                              <span class="text-danger">{{ $pesanan->status }}</span>
+                              @endif
+                            </td>
+                            <td class="text-center">
+                              <div class="d-flex justify-content-center">
+                                  <form action="/ubahstatus/{{ $pesanan->id }}" method="POST">
+                                      @csrf
+                                      @method('PUT')
+                                      <input type="hidden" name="status" value="selesai">
+                                      <button type="submit" class="btn btn-success" name="selesai">Selesai</button>
+                                  </form>
+                              </div>
+                          </td>
+                        </tr>
+                        @endforeach
                     </tbody>
-                  </table>
+                </table>
+                <br>              
+                {{ $order->links() }}
+                
                 </div>
               </div>
             </div>                       
           </div>
         </div>
         <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->        
+        <!-- partial:../../partials/_footer.html -->       
         <!-- partial -->
       </div>
       <!-- main-panel ends -->

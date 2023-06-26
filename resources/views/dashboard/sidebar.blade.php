@@ -23,16 +23,22 @@
     </li>
     @endif
     <li class="nav-item">
-      <a class="nav-link" href="#auth">
+      <a class="nav-link" href="/pesanan">
         <span class="icon-bg"><i class="mdi mdi-clipboard-text menu-icon"></i></span>
         <span class="menu-title">Data Pesanan</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/selesai">
+        <span class="icon-bg"><i class="mdi mdi-clipboard-text menu-icon"></i></span>
+        <span class="menu-title">Pesanan Selesai</span>
+      </a>
+    </li>
     @if (auth()->user()->level == "owner")
     <li class="nav-item">
-      <a class="nav-link" href="#auth">
+      <a class="nav-link" href="/cetakform">
         <span class="icon-bg"><i class="mdi mdi-folder-multiple-outline menu-icon"></i></span>
-        <span class="menu-title">Laporan</span>
+        <span class="menu-title">Recipt Print</span>
       </a>
     </li>
     @endif

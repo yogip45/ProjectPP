@@ -85,3 +85,13 @@ Route::get('/deleteuser/{id}',[UsersController::class, 'deleteuser'])->name('del
 //tampil meja
 // Route::get('/menu',[MejaController::class, 'index'])->name('tampil.menu');
 
+//pesanan
+Route::get('/pesanan',[CheckoutController::class, 'tampilsemua'])->name('tampil.pesanan');
+Route::get('/cetakform',[CheckoutController::class, 'cetakstrukform'])->name('tampil.form');
+Route::get('/struk/{no_meja}',[CheckoutController::class, 'struk']);
+//pesanan selesai tampil
+Route::get('/selesai',[CheckoutController::class, 'tampilselesai'])->name('tampil.selesai');
+//ubah status pesanan
+Route::put('/ubahstatus/{id}',[CheckoutController::class, 'ubahstatus'])->name('order.ubahstatus');
+
+

@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Users Management</title>
+  <title>BOSS ANGKRINGAN</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -43,7 +43,7 @@
               <input type="text" class="form-control bg-transparent border-0" placeholder="Search products">
             </div>
           </form>
-        </div>        
+        </div>       
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
@@ -57,11 +57,11 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
-            <h3 class="page-title"> Pengaturan User </h3>
+            <h3 class="page-title"> Cetak Struk </h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Users</li>
+                <li class="breadcrumb-item active" aria-current="page">Pesanan Selesai</li>
               </ol>
             </nav>
           </div>
@@ -70,66 +70,31 @@
             <div class="col-lg-12 grid-margin stretch-card">
 
               <div class="card">
-                <div class="card-body">
-                  {{-- <h4 class="card-title">Bordered table</h4> --}}
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahuser">
-                    Tambah User +
-                  </button>
+                <div class="card-body">                  
                   @php
                       $no = 1;
                   @endphp
                   <!-- Modal -->
-                  @include('/dashboard/tambahuser')
-                  {{-- <p class="card-description"> Add class <code>.table-bordered</code>
-                    </p> --}}
-                  <br>
-                  <p></p>
-                  <table class="table table-bordered">                    
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-primary" role="alert">
-                      {{ $message }}
-                    </div>
-                    @endif
-                    <thead>
-                      <tr>
-                        <th> # </th>
-                        <th> Nama </th>
-                        <th> Email </th>
-                        <th> Role </th>
-                        <th> Action </th>
-                        {{-- <th> Action </th> --}}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($users as $user)
-                      <tr>
-                        <td>{{ $no++ }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->level }}</td>
-                        {{-- <td><img src="{{ asset('/gambarmenu/'.$menu->gambar) }}" alt=""></td> --}}
-                        <td class="text-center">
-                          <div class="d-flex justify-content-center">
-                            <a href="/tampiluser/{{ $user->id }}" class="btn btn-primary" name="edit">
-                              Edit
-                            </a>
-                            {{-- @include('/dashboard/editmenu') --}}
-                            {{-- <a href="/delete/{{ $menu->id }}" class="btn btn-danger" name="hapus">Hapus</a> --}}
-                            <a href="/deleteuser/{{ $user->id }}" class="btn btn-danger ml-2" name="hapus">Hapus</a>
-                          </div>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+                  @include('/dashboard/tambahmenu')
+                  {{-- <p class="card-description"> Add class <code>.table-bordered</code>                    
+                    </p> --}}                                      
+                      <div class="form-group">
+                          <label for="menu">Pilih Meja :</label>
+                          <select class="form-control col-md-2" id="no_meja" name="no_meja">
+                              <option value="M1">M1</option>
+                              <option value="M2">M2</option>
+                              <option value="M3">M3</option>
+                          </select>
+                      </div>                      
+                      <a href="" target="_blank" onclick="this.href='/struk/' + document.getElementById('no_meja').value" class="btn btn-primary">Cetak</a>                 
+                
                 </div>
               </div>
             </div>                       
           </div>
         </div>
         <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->        
+        <!-- partial:../../partials/_footer.html -->       
         <!-- partial -->
       </div>
       <!-- main-panel ends -->

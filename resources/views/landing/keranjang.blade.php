@@ -137,6 +137,7 @@
                                         <input type="number" class="form-control input-number col-md-2" id="jumlah" placeholder="Jumlah" name="jumlah" value="1" min="1">
                                     </div>
                                 </div>
+                                        <input type="text" class="form-control input-number col-md-2" id="status" name="status" value="belum selesai" hidden>                                                                    
                                 <div class="form-group">
                                     <label for="nomor_meja">Nomor Meja</label>
                                     <select class="form-control col-md-2" id="nomor_meja" name="nomor_meja">
