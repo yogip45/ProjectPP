@@ -331,13 +331,13 @@ a {
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        <a href="#">Print</a>
+                                        <a href="#" onclick="window.print();">Print</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="content-block">
+                                    {{-- <td class="content-block">
                                         BOSSS ANGKRINGAN (TUTUP NJIR)
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             </tbody></table>
                         </td>

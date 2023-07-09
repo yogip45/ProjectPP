@@ -34,14 +34,14 @@
         <span class="menu-title">Pesanan Selesai</span>
       </a>
     </li>
-    @if (auth()->user()->level == "owner")
+    {{-- @if (auth()->user()->level == "owner") --}}
     <li class="nav-item">
       <a class="nav-link" href="/cetakform">
         <span class="icon-bg"><i class="mdi mdi-folder-multiple-outline menu-icon"></i></span>
         <span class="menu-title">Recipt Print</span>
       </a>
     </li>
-    @endif
+    {{-- @endif --}}
     @if (auth()->user()->level == "owner")
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">

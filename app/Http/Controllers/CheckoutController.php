@@ -16,7 +16,12 @@ class CheckoutController extends Controller
         // $meja = Meja::all();
         // return view('/landing/keranjang', ['mejas' => $meja]);
     }
-
+    public function allpesanan($no_meja){
+        $no = $no_meja;
+        $data = Order::with('menu')->where('nomor_meja', $no)
+        ->get();                
+        return view('/landing/allpesanan')->with('order',$data);
+    }
     public function tampilsemua(){
         // $data = Order::all();
         $data = Order::with('menu')->where('status', 'belum selesai')->paginate(5);
@@ -36,16 +41,17 @@ class CheckoutController extends Controller
     public function cetakstrukform(){
         return view('/dashboard/cetakform');
     }
-
-    public function struk($no_meja){
-        // dd($no_meja);        
+    public function delete($id){
+        $data = Order::find($id);
+        $data->delete();
+        return redirect()->route('tampil.selesai')->with('success','Data Berhasil Dihapus');
+    }
+    public function struk($no_meja){        
         $no = $no_meja;
         $data = Order::with('menu')->where('nomor_meja', $no)
         ->where('status', 'selesai')
-        ->get();
-                // ->where('no_meja', $no_meja)
-                // dd($data);
-                return view('/dashboard/struk')->with('data',$data);
+        ->get();                
+        return view('/dashboard/struk')->with('data',$data);
         
     }
     public function ubahstatus(Request $request, $id)

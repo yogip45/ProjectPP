@@ -186,18 +186,8 @@
                                                 </select>
                                             </div> --}}
                                             <div class="col-12 mb-3">
-                                                {{-- <a href="{{ route('tampil.menu') }}"> --}}
-                                                    <div class="form-group">
-                                                        <label for="nomor_meja">Nomor Meja</label>
-                                                        <select class="form-control col-md-6" id="no_meja" name="nomor_meja">
-                                                            {{-- @foreach($meja as $item) --}}
-                                                            <option value="M1">M1</option>
-                                                            <option value="M2">M2</option>
-                                                            <option value="M3">M3</option>
-                                                            {{-- @endforeach --}}
-                                                        </select>
-                                                    </div>
-                                                    <a href="" target="_blank" onclick="this.href='/allpesanan/' + document.getElementById('no_meja').value" class="btn karl-checkout-btn col-md-7 mb-2">Cek Pesanan</a>
+                                                {{-- <a href="{{ route('tampil.menu') }}"> --}}                                                    
+                                                    <a href="#" class="btn karl-checkout-btn col-md-7 mb-2" onclick="window.location.reload()">Refresh Status</a>
                                                 </a>
                                                 {{-- </a> --}}
                                             </div>
@@ -255,31 +245,54 @@
                                 {{-- </div> --}}
                                 {{-- </div> -- --}}
                                 <!-- Single gallery Item -->
-                                @foreach ($menus as $menu)
-                                <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src={{ asset('/gambarmenu/'.$menu->gambar) }} alt="">
-                                        {{-- <div class="product-quicview">
-                                            <a href="#" data-toggle="modal" data-target="#quickview"><i class="ti-plus"></i></a>
-                                        </div> --}}
-                                    </div>
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <h4 class="product-price">Rp.{{ $menu->harga }}</h4>
-                                        <p>{{ $menu->nama_menu }}</p>
-                                        <br>
-                                        <!-- Add to Cart -->
-                                        <div class="quantity-add-to-cart">
-                                            {{-- <input type="number" min="0" value="0" class="quantity-input" id="jumlah_"> --}}
-                                            <a href="/keranjang/{{ $menu->id }}" type="button" class="btn karl-checkout-btn col-md-15 mb-2"">Tambah</a>
-                                            {{-- <a href="#" type="submit" class="add-to-cart-btn" data-toggle="modal" data-target="#exampleModal">Tambah</a> --}}
-                                            {{-- <button type="submit" class="btn karl-checkout-btn">Tambah</button> --}}
-                                        </div>
-                                    </div>
-                                    {{-- <input type="button" id="menu_id_{{ $menu->id }}" value="{{ $menu->id }}" name="menu_id"> --}}
-                                        </div>
-                                        @endforeach
+                                {{-- @foreach ($order as $pesanan) --}}
+                                <div class="col-12" data-wow-delay="0.2s">
+                                    <table class="table table-bordered">                    
+                                        @if ($message = Session::get('success'))
+                                            <div class="alert alert-primary" role="alert">
+                                                {{ $message }}
+                                            </div>
+                                        @endif
+                                        <thead>
+                                            <tr>
+                                                <th> # </th>
+                                                <th>Nama Menu</th>
+                                                <th>Meja</th>
+                                                <th>Jumlah</th>
+                                                <th>Total Harga</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $no = 0;
+                                            @endphp
+                                            @foreach ($order as $pesanan)
+                                            <tr>
+                                                <td>{{ $no++ }}</td>
+                                                <td style="word-break: break-all;">{{ $pesanan->menu->nama_menu }}</td>
+                                                <td>{{ $pesanan->nomor_meja }}</td>
+                                                <td>{{ $pesanan->jumlah }}</td>
+                                                <td>{{ $pesanan->jumlah * $pesanan->menu->harga }}</td>
+                                                <td>
+                                                  @if ($pesanan->status == 'selesai')
+                                                  <span class="text-success">{{ $pesanan->status }}</span>
+                                                  @else
+                                                  <span class="text-danger">{{ $pesanan->status }}</span>
+                                                  @endif
+                                                </td>
+                                                <td class="text-center">
+                                                  <div class="d-flex justify-content-center">
+                                                    <a href="/deletepesanan/{{ $pesanan->id }}" class="btn btn-danger ml-2" name="hapus">Hapus</a>
+                                                  </div>
+                                              </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                        {{-- @endforeach --}}
                                         </form>
                                     </div>
                                 </div>

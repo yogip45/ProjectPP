@@ -61,6 +61,8 @@ Route::post('/editmenu/{id}',[Menucontroller::class, 'editdata'])->name('tampil'
 
 //hapus menu
 Route::get('/delete/{id}',[Menucontroller::class, 'delete'])->name('delete');
+//hapus order selesai
+Route::get('/deletepesanan/{id}',[CheckoutController::class, 'delete'])->name('delete.pesanan');
 
 //tampil di modal keranjang
 Route::get('/menu/{id}',[Menucontroller::class, 'tampildimodal'])->name('tampilmodal');
@@ -91,6 +93,7 @@ Route::get('/cetakform',[CheckoutController::class, 'cetakstrukform'])->name('ta
 Route::get('/struk/{no_meja}',[CheckoutController::class, 'struk']);
 //pesanan selesai tampil
 Route::get('/selesai',[CheckoutController::class, 'tampilselesai'])->name('tampil.selesai');
+Route::get('/allpesanan/{id}',[CheckoutController::class, 'allpesanan'])->name('tampil.all');
 //ubah status pesanan
 Route::put('/ubahstatus/{id}',[CheckoutController::class, 'ubahstatus'])->name('order.ubahstatus');
 

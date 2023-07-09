@@ -119,12 +119,7 @@
                             </td>
                             <td class="text-center">
                               <div class="d-flex justify-content-center">
-                                  <form action="/ubahstatus/{{ $pesanan->id }}" method="POST">
-                                      @csrf
-                                      @method('PUT')
-                                      <input type="hidden" name="status" value="selesai">
-                                      <button type="submit" class="btn btn-success" name="selesai">Selesai</button>
-                                  </form>
+                                <a href="/deletepesanan/{{ $pesanan->id }}" class="btn btn-danger ml-2" name="hapus">Hapus</a>
                               </div>
                           </td>
                         </tr>
